@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badminton Shop</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<th:block th:replace="~{web/header::header}">
+	</th:block>
+	<th:block th:replace="~{web/slide::slide}">
+	</th:block>
+	<!-- ------- featured products ------- -->
+
+	<div class="categories">
+		<div class="small-container">
+			<h2 class="title">ATHLETES</h2>
+			<div class="row">
+				<div class="col-3">
+					<img src="images/VIKTORAXELSEN.jpg">
+				</div>
+				<div class="col-3">
+					<img src="images/AnSeyoung.jpg">
+				</div>
+				<div class="col-3">
+					<img src="images/ChouTienChen.jpg">
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- ------- featured products ------- -->
+	<div class="small-container">
+		<h2 class="title">Featured Products</h2>
+		<div class="row">
+
+			<th:block th:each="p : ${listtop8product}">
+
+				<div class="col-4">
+					<a th:href="@{'/product-detail/'+${p.id}+'/'+${p.category.id}}">
+						<img class="product-image"
+						th:src="@{'/api/uploadfile/upload/' + ${p.thumbnailPhoto}}">
+					</a>
+					<h4>[[${p.name}]]</h4>
+					<div class="rating">
+						<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+							class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+							class="fa fa-star"></i>
+					</div>
+					<p>[[${p.price}]] $</p>
+				</div>
+
+			</th:block>
+
+		</div>
+		<h2 class="title">Latest Products</h2>
+		<div class="row">
+			<th:block th:each="p : ${listlast4product}">
+				<div class="col-4">
+					<a th:href="@{'/product-detail/'+${p.id}+'/'+${p.category.id}}">
+						<img class="product-image" th:src="@{'/api/uploadfile/upload/' + ${p.thumbnailPhoto}}">
+					</a> 
+					<h4>[[${p.Name}]]</h4>
+					<div class="rating">
+						<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+							class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+							class="fa fa-star"></i>
+					</div>
+					<p>[[${p.price}]] $</p>
+				</div>
+			</th:block>
+		</div>
+	</div>
+
+	<!-- ------- offer ------- -->
+	<div class="offer">
+		<div class="small-container">
+			<div class="row">
+				<div class="col-2">
+					<img src="images/AS99-pro.png" class="offer-img">
+				</div>
+				<div class="col-2">
+					<p>Exclusively Available on RedStore</p>
+					<h1>YONEX 99 PRO</h1>
+					<small>Overwhelm the opposition with the fast and powerful
+						ASTROX. For players who demand a steep angled and devastating
+						smash, taking the point to their opponent. </small> <br> <a
+						href="http://localhost:8080/product-detail/48/1" class="btn">Learn More &#8594;</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- ------- testimonial ------- -->
+
+	<div class="categories">
+		<h2 class="title">NEWS STORIES</h2>
+		<div class="small-container">
+			<div class="blog-posts">
+				<div class="blog-posts__item">
+					<div class="blog-posts__item__image-wrapper">
+						<img
+							src="https://www.yonex.com/media/wysiwyg/news/badminton/news_230818_960x600.jpg"
+							alt="" title="" class="blog-posts__item__image img-center-auto"
+							style="width: 384px; height: 240px; margin-left: -12px;">
+					</div>
+					<div class="blog-posts__item__content-wrapper">
+						<p class="blog-posts__item__date">August 17, 2023</p>
+						<h3 class="blog-posts__item__title">POWER CUSHION 65 Z C-90:
+							Where Sustainability Meets High Performance</h3>
+						<a href="http://localhost:8080/news1"
+							class="blog-posts__item__link"
+							aria-label="POWER CUSHION 65 Z C-90:  Where Sustainability Meets High Performance">
+							<span class="blog-posts__item__link__text">Read Full Story</span>
+							<span class="blog-posts__item__link__gt"></span>
+						</a>
+					</div>
+				</div>
+				<div class="blog-posts__item">
+					<div class="blog-posts__item__image-wrapper">
+						<img
+							src="https://www.yonex.com/media/wysiwyg/news/badminton/news231016_960.png"
+							alt="" title="" class="blog-posts__item__image img-center-auto"
+							style="width: 384px; height: 240px; margin-left: -12px;">
+					</div>
+					<div class="blog-posts__item__content-wrapper">
+						<p class="blog-posts__item__date">October 15, 2023</p>
+						<h3 class="blog-posts__item__title">New NANOFLARE 800 The
+							Counter Drive they’ll never see coming</h3>
+						<a href="http://localhost:8080/news1"
+							class="blog-posts__item__link"
+							aria-label="POWER CUSHION 65 Z C-90:  Where Sustainability Meets High Performance">
+							<span class="blog-posts__item__link__text">Read Full Story</span>
+							<span class="blog-posts__item__link__gt"></span>
+						</a>
+					</div>
+				</div>
+				<div class="blog-posts__item">
+					<div class="blog-posts__item__image-wrapper">
+						<img
+							src="https://www.yonex.com/media/wysiwyg/news/badminton/230512_960x600.jpg"
+							alt="" title="" class="blog-posts__item__image img-center-auto"
+							style="width: 384px; height: 240px; margin-left: -12px;">
+					</div>
+					<div class="blog-posts__item__content-wrapper">
+						<p class="blog-posts__item__date">May 11, 2023</p>
+						<h3 class="blog-posts__item__title">Lightning strikes with
+							the new NANOFLARE 1000</h3>
+						<a href="http://localhost:8080/news1"
+							class="blog-posts__item__link"
+							aria-label="POWER CUSHION 65 Z C-90:  Where Sustainability Meets High Performance">
+							<span class="blog-posts__item__link__text">Read Full Story</span>
+							<span class="blog-posts__item__link__gt"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- ------- brands ------- -->
+	<div class="brands">
+		<div class="small-container">
+			<div class="row">
+				<div class="col-5">
+					<img src="images/logo-yonex-2021.jpg" alt="">
+				</div>
+				<div class="col-5">
+					<img src="images/logo-victor-2021.jpg" alt="">
+				</div>
+				<div class="col-5">
+					<img src="images/logo-prince-2021.jpg" alt="">
+				</div>
+				<div class="col-5">
+					<img src="images/logo-adidas-2021.jpg" alt="">
+				</div>
+				<div class="col-5">
+					<img src="images/logo-nike.png" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+    <th:block th:replace="~{web/backbutton::backbutton}">
+	</th:block>
+	<th:block th:replace="~{web/footer::footer}">
+	</th:block>
+
+	<!-- -------- js for toggle menu -------- -->
+	<script>
+		var MenuItems = document.getElementById("MenuItems");
+
+		MenuItems.style.maxHeight = "0px";
+
+		function menutoggle() {
+			if (MenuItems.style.maxHeight == "0px") {
+				MenuItems.style.maxHeight = "200px"
+			} else {
+				MenuItems.style.maxHeight = "0px"
+			}
+		}
+	</script>
+</body>
+</html>
